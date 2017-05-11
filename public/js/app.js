@@ -12294,7 +12294,8 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
     cart: 'cart'
   })),
   methods: _extends({}, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_vuex__["c" /* mapActions */])({
-    getCart: 'getCart'
+    getCart: 'getCart',
+    removeProductFromCart: 'removeProductFromCart'
   })),
   mounted() {
     this.getCart();
@@ -12482,6 +12483,13 @@ const getCart = ({ commit }) => __WEBPACK_IMPORTED_MODULE_0_axios___default.a.ge
 /* harmony export (immutable) */ __webpack_exports__["getCart"] = getCart;
 
 
+const removeProductFromCart = ({ commit }, productId) => {
+    commit('removeFromCart', productId);
+    __WEBPACK_IMPORTED_MODULE_0_axios___default.a.delete(`http://vuex-cart.dev/api/cart/${productId}`).then(response => {});
+};
+/* harmony export (immutable) */ __webpack_exports__["removeProductFromCart"] = removeProductFromCart;
+
+
 /***/ }),
 /* 38 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -12567,6 +12575,20 @@ const appendToCart = (state, product) => {
     }
 };
 /* harmony export (immutable) */ __webpack_exports__["appendToCart"] = appendToCart;
+
+
+const removeFromCart = (state, productId) => {
+    const existing = state.cart.find(item => {
+        return item.product.id === productId;
+    });
+
+    if (existing.quantity > 1) {
+        existing.quantity--;
+    } else {
+        state.cart = state.cart.filter(item => item.product.id !== productId);
+    }
+};
+/* harmony export (immutable) */ __webpack_exports__["removeFromCart"] = removeFromCart;
 
 // set cart
 // clear cart
@@ -47643,6 +47665,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       staticClass: "uk-button \n                uk-button-danger \n                uk-button-small \n                uk-text-small",
       attrs: {
         "href": "#"
+      },
+      on: {
+        "click": function($event) {
+          $event.preventDefault();
+          _vm.removeProductFromCart(item.product.id)
+        }
       }
     }, [_vm._v("\n          Remove\n      ")]), _vm._v("\n      " + _vm._s(item.quantity) + " x " + _vm._s(item.product.title) + " @ $" + _vm._s(item.product.price) + "\n    ")])
   }), _vm._v(" "), _vm._m(0)], 2) : _c('p', [_vm._v("No items in cart")])])

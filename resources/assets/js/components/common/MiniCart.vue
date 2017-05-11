@@ -6,7 +6,7 @@
                   uk-button-danger 
                   uk-button-small 
                   uk-text-small" 
-            href="#">
+            href="#" @click.prevent="removeProductFromCart(item.product.id)">
             Remove
         </a>
         {{ item.quantity }} x {{ item.product.title }} @ ${{ item.product.price }}
@@ -34,7 +34,8 @@
     },
     methods: {
       ...mapActions({
-        getCart: 'getCart'
+        getCart: 'getCart',
+        removeProductFromCart: 'removeProductFromCart'
       })
     },
     mounted () {
