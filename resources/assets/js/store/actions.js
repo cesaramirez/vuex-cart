@@ -23,5 +23,10 @@ export const addProductToCart = ({
 
     })
 }
-// get cart add a product to our cart remove a product from cart remove all
-// product from our cart
+
+export const getCart = ({ commit }) => axios
+    .get('http://vuex-cart.dev/api/cart')
+    .then((response) => {
+        commit('setCart', response.data)
+        return Promise.resolve()
+    })

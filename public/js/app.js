@@ -12292,7 +12292,13 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
   name: 'mini-cart',
   computed: _extends({}, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapGetters */])({
     cart: 'cart'
-  }))
+  })),
+  methods: _extends({}, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_vuex__["c" /* mapActions */])({
+    getCart: 'getCart'
+  })),
+  mounted() {
+    this.getCart();
+  }
 });
 
 /***/ }),
@@ -12459,8 +12465,13 @@ const addProductToCart = ({
 };
 /* harmony export (immutable) */ __webpack_exports__["addProductToCart"] = addProductToCart;
 
-// get cart add a product to our cart remove a product from cart remove all
-// product from our cart
+
+const getCart = ({ commit }) => __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('http://vuex-cart.dev/api/cart').then(response => {
+    commit('setCart', response.data);
+    return Promise.resolve();
+});
+/* harmony export (immutable) */ __webpack_exports__["getCart"] = getCart;
+
 
 /***/ }),
 /* 38 */
@@ -12474,6 +12485,7 @@ const products = state => state.products;
 
 const cart = state => state.cart;
 /* harmony export (immutable) */ __webpack_exports__["cart"] = cart;
+
 
 // cart
 // cart item count
@@ -12516,6 +12528,10 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 const setProducts = (state, products) => state.products = products;
 /* harmony export (immutable) */ __webpack_exports__["setProducts"] = setProducts;
+
+
+const setCart = (state, items) => state.cart = items;
+/* harmony export (immutable) */ __webpack_exports__["setCart"] = setCart;
 
 
 const appendToCart = (state, product) => {
@@ -47698,10 +47714,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   })]), _vm._v(" "), _c('div', {
     staticClass: "uk-card-body uk-padding-small"
-  }, [_c('a', {
-    attrs: {
-      "href": "#"
-    }
+  }, [_c('span', {
+    staticClass: "uk-text-primary"
   }, [_vm._v(_vm._s(_vm.product.title))]), _vm._v(" " + _vm._s(_vm.product.price) + "\n    "), _c('p', [_vm._v(_vm._s(_vm.product.description))]), _vm._v(" "), _c('a', {
     staticClass: "uk-button \n              uk-button-primary \n              uk-width-1-1",
     attrs: {

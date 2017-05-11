@@ -4,7 +4,7 @@
           <img :src="product.image" :alt="product.title">
       </div>
       <div class="uk-card-body uk-padding-small">
-        <a href="#">{{ product.title }}</a> {{ product.price }}
+        <span class="uk-text-primary">{{ product.title }}</span> {{ product.price }}
         <p>{{ product.description }}</p>
         <a class="uk-button 
                   uk-button-primary 
