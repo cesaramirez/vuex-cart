@@ -36935,7 +36935,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "href": "#"
     }
-  }, [_vm._v("\n          Remove\n      ")]), _vm._v("\n      1 x Some product £0.00\n    ")]), _vm._v(" "), _c('li', [_c('a', {
+  }, [_vm._v("\n          Remove\n      ")]), _vm._v("\n      1 x Some product @ $0.00\n    ")]), _vm._v(" "), _c('li', [_c('a', {
     staticClass: "uk-button uk-button-primary uk-width-1-1",
     attrs: {
       "href": "#"

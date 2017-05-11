@@ -9,7 +9,7 @@
             href="#">
             Remove
         </a>
-        1 x Some product £0.00
+        1 x Some product @ $0.00
       </li>      
       <li>
         <a  class="uk-button uk-button-primary uk-width-1-1"
