@@ -1,7 +1,7 @@
 import './bootstrap';
 import Vue from 'vue';
 import Vuex from 'vuex';
-/*import store from './store';*/
+import store from './store';
 import App from './App';
 
 window.Vue = Vue;
@@ -11,7 +11,7 @@ Vue.config.productionTip = false;
 
 new Vue({
     el: '#app',
-    /*store,*/
+    store,
     template: '<App/>',
     components: { App }
 });
