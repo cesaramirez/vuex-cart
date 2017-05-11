@@ -13,7 +13,7 @@
       </li>      
       <li>
         <a  class="uk-button uk-button-primary uk-width-1-1"
-            href='#'>
+            href='#' @click.prevent="removeAllProductsFromCart">
                 Clear cart
             </a>
       </li>
@@ -35,7 +35,8 @@
     methods: {
       ...mapActions({
         getCart: 'getCart',
-        removeProductFromCart: 'removeProductFromCart'
+        removeProductFromCart: 'removeProductFromCart',
+        removeAllProductsFromCart: 'removeAllProductsFromCart'
       })
     },
     mounted () {

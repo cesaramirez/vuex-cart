@@ -12295,7 +12295,8 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
   })),
   methods: _extends({}, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_vuex__["c" /* mapActions */])({
     getCart: 'getCart',
-    removeProductFromCart: 'removeProductFromCart'
+    removeProductFromCart: 'removeProductFromCart',
+    removeAllProductsFromCart: 'removeAllProductsFromCart'
   })),
   mounted() {
     this.getCart();
@@ -12476,18 +12477,31 @@ const addProductToCart = ({
 /* harmony export (immutable) */ __webpack_exports__["addProductToCart"] = addProductToCart;
 
 
-const getCart = ({ commit }) => __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('http://vuex-cart.dev/api/cart').then(response => {
+const getCart = ({
+    commit
+}) => __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('http://vuex-cart.dev/api/cart').then(response => {
     commit('setCart', response.data);
     return Promise.resolve();
 });
 /* harmony export (immutable) */ __webpack_exports__["getCart"] = getCart;
 
 
-const removeProductFromCart = ({ commit }, productId) => {
+const removeProductFromCart = ({
+    commit
+}, productId) => {
     commit('removeFromCart', productId);
-    __WEBPACK_IMPORTED_MODULE_0_axios___default.a.delete(`http://vuex-cart.dev/api/cart/${productId}`).then(response => {});
+    __WEBPACK_IMPORTED_MODULE_0_axios___default.a.delete(`http://vuex-cart.dev/api/cart/${productId}`);
 };
 /* harmony export (immutable) */ __webpack_exports__["removeProductFromCart"] = removeProductFromCart;
+
+
+const removeAllProductsFromCart = ({
+    commit
+}) => {
+    commit('clearCart');
+    __WEBPACK_IMPORTED_MODULE_0_axios___default.a.delete('http://vuex-cart.dev/api/cart');
+};
+/* harmony export (immutable) */ __webpack_exports__["removeAllProductsFromCart"] = removeAllProductsFromCart;
 
 
 /***/ }),
@@ -12513,9 +12527,6 @@ const cartTotal = state => state.cart.reduce((a, b) => {
 }, 0).toFixed(2);
 /* harmony export (immutable) */ __webpack_exports__["cartTotal"] = cartTotal;
 
-
-// cart
-// cart total
 
 /***/ }),
 /* 39 */
@@ -12590,9 +12601,10 @@ const removeFromCart = (state, productId) => {
 };
 /* harmony export (immutable) */ __webpack_exports__["removeFromCart"] = removeFromCart;
 
-// set cart
-// clear cart
-// remove from cart
+
+const clearCart = state => state.cart = [];
+/* harmony export (immutable) */ __webpack_exports__["clearCart"] = clearCart;
+
 
 /***/ }),
 /* 41 */
@@ -47673,15 +47685,19 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         }
       }
     }, [_vm._v("\n          Remove\n      ")]), _vm._v("\n      " + _vm._s(item.quantity) + " x " + _vm._s(item.product.title) + " @ $" + _vm._s(item.product.price) + "\n    ")])
-  }), _vm._v(" "), _vm._m(0)], 2) : _c('p', [_vm._v("No items in cart")])])
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('li', [_c('a', {
+  }), _vm._v(" "), _c('li', [_c('a', {
     staticClass: "uk-button uk-button-primary uk-width-1-1",
     attrs: {
       "href": "#"
+    },
+    on: {
+      "click": function($event) {
+        $event.preventDefault();
+        _vm.removeAllProductsFromCart($event)
+      }
     }
-  }, [_vm._v("\n              Clear cart\n          ")])])
-}]}
+  }, [_vm._v("\n              Clear cart\n          ")])])], 2) : _c('p', [_vm._v("No items in cart")])])
+},staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()

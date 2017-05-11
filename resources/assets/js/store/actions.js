@@ -24,16 +24,25 @@ export const addProductToCart = ({
     })
 }
 
-export const getCart = ({ commit }) => axios
+export const getCart = ({
+        commit
+    }) => axios
     .get('http://vuex-cart.dev/api/cart')
     .then((response) => {
         commit('setCart', response.data)
         return Promise.resolve()
     })
 
-export const removeProductFromCart = ({ commit }, productId) => {
+export const removeProductFromCart = ({
+    commit
+}, productId) => {
     commit('removeFromCart', productId)
-    axios.delete(`http://vuex-cart.dev/api/cart/${productId}`).then( (response) => {
+    axios.delete(`http://vuex-cart.dev/api/cart/${productId}`)
+}
 
-    })
+export const removeAllProductsFromCart = ({
+    commit
+}) => {
+    commit('clearCart')
+    axios.delete('http://vuex-cart.dev/api/cart')
 }
