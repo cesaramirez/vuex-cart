@@ -42,6 +42,18 @@ class ProductsTableSeeder extends Seeder
               "description"=> "To brush your teeth",
               "image"=> "https://placeholdit.imgix.net/~text?txtsize=33&txt=242%C3%97200&w=242&h=200",
               "price"=> 2.5
+            ],
+            [
+              "title"=> "Oreo",
+              "description"=> "Chocolate and milk",
+              "image"=> "https://placeholdit.imgix.net/~text?txtsize=33&txt=242%C3%97200&w=242&h=200",
+              "price"=> 3.2
+            ],
+            [
+              "title"=> "Nougat",
+              "description"=> "Candy sweat",
+              "image"=> "https://placeholdit.imgix.net/~text?txtsize=33&txt=242%C3%97200&w=242&h=200",
+              "price"=> 0.75
             ]
         ];
 

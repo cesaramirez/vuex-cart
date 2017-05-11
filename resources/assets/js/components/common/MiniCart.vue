@@ -1,7 +1,7 @@
 <template>
-  <div class="uk-card uk-card-body uk-card-default mini-cart uk-padding-small">
-    <ul class="uk-list uk-list-divider uk-text-small">
-      <li>
+  <div class="uk-card uk-card-body uk-card-default mini-cart uk-padding-small" uk-sticky="offset: 50">
+    <ul class="uk-list uk-list-divider uk-text-small" v-if="cart.length">
+      <li v-for="item in cart">
         <a class="uk-button 
                   uk-button-danger 
                   uk-button-small 
@@ -9,7 +9,7 @@
             href="#">
             Remove
         </a>
-        1 x Some product @ $0.00
+        {{ item.quantity }} x {{ item.product.title }} @ ${{ item.product.price }}
       </li>      
       <li>
         <a  class="uk-button uk-button-primary uk-width-1-1"
@@ -18,12 +18,19 @@
             </a>
       </li>
     </ul>
-    <p>No items in cart</p>
+    <p v-else>No items in cart</p>
   </div>
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
+
   export default {
-    name: 'mini-cart'
+    name: 'mini-cart',
+    computed: {
+      ...mapGetters({
+        cart: 'cart'
+      })
+    }
   }
 </script>

@@ -6,13 +6,32 @@
       <div class="uk-card-body uk-padding-small">
         <a href="#">{{ product.title }}</a> {{ product.price }}
         <p>{{ product.description }}</p>
-        <a href="#" class="uk-button uk-button-primary uk-width-1-1" role="button">Add to cart</a>
+        <a class="uk-button 
+                  uk-button-primary 
+                  uk-width-1-1" 
+            role="button" 
+            href="#" @click.prevent="addToCart">
+            Add to cart
+        </a>
       </div>
     </div>
 </template>
 
 <script>
+  import { mapActions } from 'vuex'
   export default {
-    props: ['product']
+    props: ['product'],
+    methods: {
+      ...mapActions({
+        addProductToCart: 'addProductToCart'
+      }),
+
+      addToCart () {
+        this.addProductToCart({
+          product: this.product,
+          quantity: 1
+        })
+      }
+    }
   }
 </script>
