@@ -2,8 +2,11 @@
 // Fonts
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
 
-// Variables
-@import "variables";
+html, body {
+    font-family: 'Raleway', sans-serif;
+    background-color: lightslategrey;   
+}
 
-// Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+a {
+    font-size: 10px !important;
+}
