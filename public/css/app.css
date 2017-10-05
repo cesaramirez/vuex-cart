@@ -1,6 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
-
-html,
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);html,
 body {
   font-family: 'Raleway', sans-serif;
   background-color: lightslategrey;
@@ -10,4 +8,3 @@ a {
   font-size: 10px !important;
 }
 
-/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInJlc291cmNlcy9hc3NldHMvc2Fzcy9hcHAuc2NzcyJdLCJzb3VyY2VzQ29udGVudCI6WyJcbi8vIEZvbnRzXG5AaW1wb3J0IHVybChodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2Nzcz9mYW1pbHk9UmFsZXdheTozMDAsNDAwLDYwMCk7XG5cbmh0bWwsIGJvZHkge1xuICAgIGZvbnQtZmFtaWx5OiAnUmFsZXdheScsIHNhbnMtc2VyaWY7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogbGlnaHRzbGF0ZWdyZXk7ICAgXG59XG5cbmEge1xuICAgIGZvbnQtc2l6ZTogMTBweCAhaW1wb3J0YW50O1xufSJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFQSxPQUFPLENBQUMsZ0VBQUk7QUFFWixBQUFBLElBQUksRUFBRSxBQUFBLElBQUksQ0FBQztFQUNQLFdBQVcsRUFBRSxxQkFBcUI7RUFDbEMsZ0JBQWdCLEVBQUUsY0FBYztDQUNuQzs7QUFFRCxBQUFBLENBQUMsQ0FBQztFQUNFLFNBQVMsRUFBRSxlQUFlO0NBQzdCIn0= */

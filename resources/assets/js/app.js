@@ -2,7 +2,7 @@ import './bootstrap';
 import Vue from 'vue';
 import Vuex from 'vuex';
 import store from './store';
-import App from './App';
+import App from './App.vue';
 
 window.Vue = Vue;
 window.Vuex = Vuex;
