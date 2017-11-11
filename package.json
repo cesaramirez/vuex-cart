@@ -20,6 +20,6 @@
   "dependencies": {
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "uikit": "^3.0.0-beta.30",
-    "vuex": "^2.3.1"
+    "vuex": "^3.0.1"
   }
 }
