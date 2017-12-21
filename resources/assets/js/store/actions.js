@@ -3,7 +3,7 @@ import axios from 'axios'
 export const getProducts = ({
         commit
     }) => axios
-    .get('http://vuex-cart.dev/api/products')
+    .get('/api/products')
     .then((response) => {
         commit('setProducts', response.data)
     })
@@ -16,7 +16,7 @@ export const addProductToCart = ({
 }) => {
     commit('appendToCart', product)
 
-    return axios.post('http://vuex-cart.dev/api/cart', {
+    return axios.post('/api/cart', {
         product_id: product.id,
         quantity
     }).then(() => {
@@ -27,7 +27,7 @@ export const addProductToCart = ({
 export const getCart = ({
         commit
     }) => axios
-    .get('http://vuex-cart.dev/api/cart')
+    .get('/api/cart')
     .then((response) => {
         commit('setCart', response.data)
         return Promise.resolve()
@@ -37,12 +37,12 @@ export const removeProductFromCart = ({
     commit
 }, productId) => {
     commit('removeFromCart', productId)
-    axios.delete(`http://vuex-cart.dev/api/cart/${productId}`)
+    axios.delete(`/api/cart/${productId}`)
 }
 
 export const removeAllProductsFromCart = ({
     commit
 }) => {
     commit('clearCart')
-    axios.delete('http://vuex-cart.dev/api/cart')
+    axios.delete('/api/cart')
 }
