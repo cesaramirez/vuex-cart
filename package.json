@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "dotenv": "^4.0.0",
-    "uikit": "^3.0.0-beta.35",
+    "uikit": "^3.0.0-beta.36",
     "vuex": "^3.0.1"
   }
 }
