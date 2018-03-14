@@ -16,7 +16,7 @@
     "cross-env": "^5.*",
     "laravel-mix": "^2.*",
     "lodash": "^4.17.4",
-    "vue": "^2.5.13"
+    "vue": "^2.5.16"
   },
   "dependencies": {
     "dotenv": "^4.0.0",
