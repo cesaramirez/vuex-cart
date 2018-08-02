@@ -11,16 +11,16 @@
   },
   "devDependencies": {
     "axios": "^0.18.0",
-    "browser-sync": "^2.24.4",
+    "browser-sync": "^2.24.6",
     "browser-sync-webpack-plugin": "^2.2.2",
-    "cross-env": "^5.1.6",
+    "cross-env": "^5.2.0",
     "laravel-mix": "^2.1.11",
     "lodash": "^4.17.10",
     "vue": "^2.5.16"
   },
   "dependencies": {
     "dotenv": "^6.0.0",
-    "uikit": "^3.0.0-rc.4",
+    "uikit": "^3.0.0-rc.10",
     "vuex": "^3.0.1"
   }
 }
